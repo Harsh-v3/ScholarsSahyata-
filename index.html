@@ -22,8 +22,61 @@
     />
     <!-- style sheets -->
     <link rel="stylesheet" href="css/style.css" />
+    <!-- <link rel="stylesheet" href="css/stylePopup.css" /> -->
     <link rel="stylesheet" href="css/icon-font.css.css" />
     <title>Scholars सहायता</title>
+    <style>
+      .close-modal {
+        position: absolute;
+        top: 1.2rem;
+        right: 2rem;
+        font-size: 4rem;
+        font-weight: bold;
+        border: none;
+        background: none;
+        cursor: pointer;
+      }
+
+      /* New Material */
+      .hidden {
+        display: none;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+      }
+
+      p {
+        font-size: 1.8rem;
+      }
+
+      .modal-window {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: 70%;
+        padding: 6rem;
+
+        background: #fff;
+        border-radius: 0.5rem;
+        box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+        z-index: 10;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(3px);
+        z-index: 5;
+      }
+    </style>
   </head>
   <body>
     <!-- navigation functionality -->
@@ -154,7 +207,7 @@
                 Expand your knowledge with a collection of essential BCA books
                 and study materials. Download PDFs of textbooks, reference
                 books, and guides to help you understand concepts better. <br />
-                <a href="#popup--2" class="btn btn--green btn--in access"
+                <a href="#" class="btn btn--green btn--in open-modal"
                   >Access
                 </a>
               </p>
@@ -173,7 +226,7 @@
                 chances of scoring high by practicing real exam questions.
                 <br />
 
-                <a href="#popup--2" class="btn btn--green btn--in access"
+                <a href="#" class="btn btn--green btn--in open-modal"
                   >Access
                 </a>
               </p>
@@ -188,7 +241,7 @@
                 Get assignment solutions and guidance for all BCA subjects.
                 Access structured answers, project ideas, and reference
                 materials to complete your assignments efficiently. <br />
-                <a href="#popup--2" class="btn btn--green btn--in access"
+                <a href="#" class="btn btn--green btn--in open-modal"
                   >Access
                 </a>
               </p>
@@ -203,7 +256,7 @@
                 Stay updated with the latest exam results for your BCA semester.
                 Check your performance and plan your next steps accordingly. Get
                 official result links and notifications in one place. <br />
-                <a href="#popup--2" class="btn btn--green btn--in access"
+                <a href="#" class="btn btn--green btn--in open-modal"
                   >Access
                 </a>
               </p>
@@ -453,9 +506,12 @@
       </section>
 
       <!-- Popups 2 -->
-      <div class="popup" id="popup--2">
-        <div class="popup__content"></div>
+      <div class="modal-window hidden">
+        <button class="close-modal">&times;</button>
+        <div class="cont"></div>
       </div>
+
+      <div class="overlay hidden"></div>
 
       <!-- Popups -->
       <div class="popup" id="popup">
