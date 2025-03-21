@@ -1,0 +1,58 @@
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.6),
+      rgba($color-primary-dark, 0.6)
+    ),
+    url(../Resourses/images/hh.jpg);
+  background-position: center;
+  background-size: cover;
+
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  position: relative;
+
+  // here we insert 0 0 in clip-path and -webkit-clip-path because it does not matter
+  // line 17 says: if clip-path or -webkit-clip-path is supported...then do the following
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    height: 95vh;
+  }
+
+  // if resolution is higher than 192dpi (user using retina display or better) than use image that has higher quality
+  // use comma to add condition
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+    only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+    only screen and (min-width: 125em) {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)
+      ),
+      url(../img/hero.jpg);
+  }
+
+  @include respond(phone) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
+
+  &__logo {
+    height: 15rem;
+
+    &-box {
+      position: absolute;
+      top: -1rem;
+      left: 4rem;
+    }
+  }
+
+  &__text-box {
+    @include center;
+    text-align: center;
+  }
+}

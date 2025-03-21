@@ -1,0 +1,17 @@
+{
+  "name": "outdoor_project",
+  "version": "0.0.1",
+  "description": "to practice and learn sass",
+  "main": "index.html",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "author": "Harsh-v3",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^9.0.0"
+  },
+  "dependencies": {
+    "live-server": "^1.2.2"
+  }
+}

@@ -1,0 +1,45 @@
+// Entire details of our big project :
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  // defining 1rem
+  font-size: 62.5%;
+  // 1rem = 10 px , 10 / 16 = 62.5 %
+
+  @include respond(tab-land) {
+    font-size: 56.25%;
+    // 1rem = 9 px , 9 / 16 = 56.25 %
+  }
+
+  @include respond(tab-port) {
+    font-size: 50%;
+    // 1rem = 8 px , 8 / 16 = 50 %
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%;
+    // 1rem = 12 px , 12 / 16 = 75 %
+  }
+}
+
+/* setting overal font properties. we do it in body because the properties related to font are usually inherited */
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
