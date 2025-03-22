@@ -31,7 +31,7 @@ const insertBody = function () {
   container.innerHTML = ``;
   const heading = ["Books & Notes", "Question Papers", "Assignments", "Result"];
   const about = [
-    "Here is PDFs of all subjects expect OS-2 !",
+    "Here is PDFs of all subjects , OS-II Notes are Provided By Mr.Rajbir Singh !",
     "Here you can get last 5 years Question Papers !",
     "For Last Two Assignments Contact Developers (+91 9518816505) !",
     "Result of Various Semesters ... ",
@@ -64,9 +64,8 @@ const insertBody = function () {
   ];
   const body = [
     `<div class="btns--container">
-            <a href="${links[2][0]}" class="btn-text btnLink btn--1">OS (HandWritten)!</a>
-            <a href="${links[2][1]}" class="btn-text btnLink btn--1">CG (HandWritten)!</a>
-            <a href="${links[2][2]}" class="btn-text btnLink btn--2">APVB (HandWritten)!</a>
+            <a href="${links[2][0]}" class="btn-text btnLink btn--1">CG (HandWritten)!</a>
+            <a href="${links[2][1]}" class="btn-text btnLink btn--2">APVB (HandWritten)!</a>
             <a href="#" class="btn-text btnLink btn--3">Web Dev (PDF/Printout)!</a>
             <a href="#" class="btn-text btnLink btn--4">APVB (PDF/Printout)!</a>
             
