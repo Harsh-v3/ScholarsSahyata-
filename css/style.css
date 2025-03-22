@@ -654,7 +654,7 @@ body {
         .composition__photo--p2 {
           top: -1rem;
           transform: scale(1.3);
-          z-index: 100; } }
+          z-index: 15; } }
     .composition__photo--p3 {
       left: 20%;
       top: 10rem; }
@@ -667,7 +667,7 @@ body {
       border-radius: 3px;
       transform: scale(1.05);
       box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
-      z-index: 20;
+      z-index: 15;
       cursor: pointer;
       transition: all 0.3s cubic-bezier(0.88, 0.19, 0.17, 1.74); }
   .composition:hover .composition__photo:not(:hover) {

@@ -7,6 +7,7 @@ const overlay = document.querySelector(".overlay");
 const container = document.querySelector(".cont");
 
 let currPopup;
+let isOpen;
 
 console.log(openButton);
 console.log(closeButton);
@@ -29,17 +30,17 @@ openButton[3].addEventListener("click", function (i) {
 
 const insertBody = function () {
   container.innerHTML = ``;
-  const heading = ["Books & Notes", "Question Papers", "Assignments", "Result"];
+  const heading = ["Books & Notes", "Question Papers", "Assignments", "Other"];
   const about = [
     "Here is PDFs of all subjects , OS-II Notes are Provided By Mr.Rajbir Singh !",
     "Here you can get last 5 years Question Papers !",
     "For Last Two Assignments Contact Developers (+91 9518816505) !",
-    "Result of Various Semesters ... ",
+    "Results , TimeTable , Notices etc.",
   ];
   const links = [
     [
       "https://www.mediafire.com/file/qz8rykcqop6argm/Computer_Graphics__BCA__6th_Sem_Book.pdf/file",
-      "https://www.mediafire.com/file/1xnxacy572sp6a0/Internet_Technology_book.pdf/file",
+      "https://www.mediafire.com/file/sbrruaq0y26e3ub/Internet_Technology_sem6_Book_.pdf/file",
       "https://www.mediafire.com/file/kidg31k4ouvy9j6/WD_in_AT__BCA__book.pdf/file",
       "https://www.mediafire.com/file/5hcsvb7n7j70tjb/Operating_Oystem_Sem6_notes.pdf/file",
       "https://www.mediafire.com/file/6rue09a9rgukjxv/Advanced_Programming_in_VB_book.pdf/file",
@@ -54,13 +55,11 @@ const insertBody = function () {
       "https://www.mediafire.com/file/7ankf94e8werliw/JAVA_qpSem6.zip/file",
     ],
     [
-      "",
       "https://www.mediafire.com/file/xc2flirltpc9xjy/Computer_Graphics_Assignment_sem6.pdf/file",
       "https://www.mediafire.com/file/xs8w69x59j7unan/VB_6.0.pdf/file",
       "",
       "",
     ],
-    [],
   ];
   const body = [
     `<div class="btns--container">
@@ -91,17 +90,16 @@ const insertBody = function () {
             }" target='_blank' class="btn-text btnLink btn--6">JAVA</a>
         </div>`,
     `<div class="btns--container">
-            <a href="#" class="btn-text btnLink btn--1">Sem 1</a>
-            <a href="#" class="btn-text btnLink btn--2">Sem 2</a>
-            <a href="#" class="btn-text btnLink btn--3">Sem 3</a>
-            <a href="#" class="btn-text btnLink btn--4">Sem 4</a>
-            <a href="#" class="btn-text btnLink btn--5">Sem 5</a>
-            <a href="#" class="btn-text btnLink btn--6">Sem 6</a>
-            
-        </div>`,
+            <a href="#" class="item" onclick="tt()" >Time Table</a>
+            <a href="#" class="item">VB Practicle File</a>
+            <a href="#" class="item">Result</a>
+            <a href="#" class="item">Special Notes</a>
+            <a href="#" class="item">Importent Questions</a>
+            <a href="#" class="item">Importent Dates</a>
+          </div>`,
   ];
   html = `
-          <h3 class="u-center-text u-margin-bottom-small heading-secondary">
+          <h3 class="u-center-text u-margin-bottom-small heading-secondary ">
             ${heading[currPopup]}
           </h3>
           <h5 class="u-center-text heading-tertiary u-margin-bottom-medium">
@@ -130,6 +128,7 @@ const openModal = function () {
 const closeModal = function () {
   modalWindow.classList.add("hidden");
   overlay.classList.add("hidden");
+  modalWindow.style.width = "80%";
 };
 
 for (let i = 0; i < openButton.length; i++) {
@@ -146,3 +145,16 @@ document.addEventListener("keydown", function (e) {
     closeModal();
   }
 });
+
+const insertTt = function () {
+  container.innerHTML = ``;
+  let body = `<img src="/Resourses/images/TimeTable.jpg" alt="Time Table image" />`;
+  container.insertAdjacentHTML("beforeend", body);
+};
+
+function tt(e) {
+  modalWindow.style.width = "auto";
+  insertTt();
+  modalWindow.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+}
