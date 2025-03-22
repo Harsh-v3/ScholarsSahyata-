@@ -25,58 +25,6 @@
     <!-- <link rel="stylesheet" href="css/stylePopup.css" /> -->
     <link rel="stylesheet" href="css/icon-font.css.css" />
     <title>Scholars सहायता</title>
-    <style>
-      .close-modal {
-        position: absolute;
-        top: 1.2rem;
-        right: 2rem;
-        font-size: 4rem;
-        font-weight: bold;
-        border: none;
-        background: none;
-        cursor: pointer;
-      }
-
-      /* New Material */
-      .hidden {
-        display: none;
-      }
-
-      h1 {
-        font-size: 2.5rem;
-        margin-bottom: 2rem;
-      }
-
-      p {
-        font-size: 1.8rem;
-      }
-
-      .modal-window {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-
-        width: 70%;
-        padding: 6rem;
-
-        background: #fff;
-        border-radius: 0.5rem;
-        box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
-        z-index: 10;
-      }
-
-      .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(3px);
-        z-index: 5;
-      }
-    </style>
   </head>
   <body>
     <!-- navigation functionality -->
@@ -207,7 +155,7 @@
                 Expand your knowledge with a collection of essential BCA books
                 and study materials. Download PDFs of textbooks, reference
                 books, and guides to help you understand concepts better. <br />
-                <a href="#" class="btn btn--green btn--in open-modal"
+                <a href="#features" class="btn btn--green btn--in open-modal"
                   >Access
                 </a>
               </p>
@@ -226,7 +174,7 @@
                 chances of scoring high by practicing real exam questions.
                 <br />
 
-                <a href="#" class="btn btn--green btn--in open-modal"
+                <a href="#features" class="btn btn--green btn--in open-modal"
                   >Access
                 </a>
               </p>
@@ -241,7 +189,7 @@
                 Get assignment solutions and guidance for all BCA subjects.
                 Access structured answers, project ideas, and reference
                 materials to complete your assignments efficiently. <br />
-                <a href="#" class="btn btn--green btn--in open-modal"
+                <a href="#features" class="btn btn--green btn--in open-modal"
                   >Access
                 </a>
               </p>
@@ -255,8 +203,8 @@
               <p class="feature-box__text">
                 Stay updated with the latest exam results for your BCA semester.
                 Check your performance and plan your next steps accordingly. Get
-                official result links and notifications in one place. <br />
-                <a href="#" class="btn btn--green btn--in open-modal"
+                official result links a. <br />
+                <a href="#features" class="btn btn--green btn--in open-modal"
                   >Access
                 </a>
               </p>
@@ -397,10 +345,10 @@
                 A BCA Student & Web Developer
               </h3>
               <p>
-                Harsh Kumar designed the structure and style of this website,
-                ensuring a clean and user-friendly experience. He strongly
-                believes that students should focus on learning real skills
-                rather than just studying for marks. His aim is to make
+                Harsh Kumar designed and created the structure and style of this
+                website, ensuring a clean and user-friendly experience. He
+                strongly believes that students should focus on learning real
+                skills rather than just studying for marks. His aim is to make
                 education interactive and accessible for every BCA student.
               </p>
             </div>
@@ -419,14 +367,15 @@
             </figure>
             <div class="story__text">
               <h3 class="heading-tertiary u-margin-bottom-small">
-                A BCA Student - Backend Manager & Web Designer
+                A BCA Student - Backend Manager & Web Designer
               </h3>
               <p>
-                Naman Kumar is the backbone of this platform, handling the logo,
-                name, study materials, and backend operations. He believes that
-                every student should have equal access to the best content,
-                ensuring no one is left behind in their learning journey. His
-                goal is to make education fair and resourceful for all.
+                Naman Kumar is handle many operations of this platform, handling
+                the logo, name, study materials, and other backend operations.
+                He believes that every student should have equal access to the
+                best content, ensuring no one is left behind in their learning
+                journey. His goal is to make education fair and resourceful for
+                all.
               </p>
             </div>
           </div>
@@ -454,6 +403,7 @@
                     required
                     id="name"
                   />
+
                   <label for="name" class="form__label">Full Name</label>
                 </div>
                 <div class="form__group">
@@ -505,12 +455,89 @@
         </div>
       </section>
 
+      <style>
+        .close-modal {
+          position: absolute;
+          top: 1.2rem;
+          right: 2rem;
+          font-size: 4rem;
+          font-weight: bold;
+          border: none;
+          background: none;
+          cursor: pointer;
+        }
+
+        /* New Material */
+        .hidden {
+          display: none;
+        }
+
+        h1 {
+          font-size: 2.5rem;
+          margin-bottom: 2rem;
+        }
+
+        p {
+          font-size: 1.8rem;
+        }
+
+        .modal-window {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+
+          width: 80%;
+          height: auto;
+          padding: 3rem;
+
+          background: #fff;
+          border-radius: 0.5rem;
+          box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+          z-index: 100;
+        }
+
+        .overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100dvw;
+          height: 100dvh;
+          background-color: rgba(0, 0, 0, 0.6);
+          backdrop-filter: blur(3px);
+          z-index: 50;
+        }
+
+        .cont {
+          width: 100%;
+          height: auto;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .btns--container {
+          height: 30dvh;
+          display: flex;
+          flex-direction: column;
+          align-content: space-evenly;
+          justify-content: space-evenly;
+          flex-wrap: wrap;
+          gap: 2rem;
+        }
+
+        .btnLink {
+          border-radius: 1px;
+          margin-bottom: 2rem;
+          width: 40%;
+          text-align: center;
+        }
+      </style>
+
       <!-- Popups 2 -->
       <div class="modal-window hidden">
         <button class="close-modal">&times;</button>
         <div class="cont"></div>
       </div>
-
       <div class="overlay hidden"></div>
 
       <!-- Popups -->
