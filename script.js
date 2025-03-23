@@ -91,11 +91,12 @@ const insertBody = function () {
         </div>`,
     `<div class="btns--container">
             <a href="#" class="item" onclick="tt()" >Time Table</a>
-            <a href="#" class="item">VB Practicle File</a>
+            <a href="#" class="item" onclick="downloadVbFp()" >VB Front Page</a>
+            <a href="#" class="item" onclick="downloadVbPdf()" >VB Practicle File</a>
             <a href="#" class="item">Result</a>
             <a href="#" class="item">Special Notes</a>
             <a href="#" class="item">Importent Questions</a>
-            <a href="#" class="item">Importent Dates</a>
+            <a href="#" class="item">Sllyabus</a>
           </div>`,
   ];
   html = `
@@ -148,7 +149,7 @@ document.addEventListener("keydown", function (e) {
 
 const insertTt = function () {
   container.innerHTML = ``;
-  let body = `<img src="/Resourses/images/TimeTable.jpg" alt="Time Table image" />`;
+  let body = `<img src="Resourses/images/TimeTable.jpg" alt="Time Table image" />`;
   container.insertAdjacentHTML("beforeend", body);
 };
 
@@ -157,4 +158,23 @@ function tt(e) {
   insertTt();
   modalWindow.classList.remove("hidden");
   overlay.classList.remove("hidden");
+}
+
+function downloadVbPdf() {
+  console.log("hi");
+  const link = document.createElement("a");
+  link.href = "Resourses/pdfs/vb.pdf"; // Replace with your PDF URL
+  link.download = "vb.pdf"; // Set the filename
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+function downloadVbFp() {
+  console.log("hi");
+  const link = document.createElement("a");
+  link.href = "Resourses/pdfs/frontPage.pdf"; // Replace with your PDF URL
+  link.download = "frontPage.pdf"; // Set the filename
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 }
