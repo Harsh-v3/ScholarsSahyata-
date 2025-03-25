@@ -34,8 +34,8 @@ const insertBody = function () {
   const about = [
     "Here is PDFs of all subjects , OS-II Notes are Provided By Mr.Rajbir Singh !",
     "Here you can get last 5 years Question Papers !",
-    "For Last Two Assignments Contact Developers (+91 9518816505) !",
-    "Results , TimeTable , Notices etc.",
+    "Wait for Remaining files !",
+    "Results , TimeTable , Notices etc...",
   ];
   const links = [
     [
@@ -94,8 +94,8 @@ const insertBody = function () {
             <a href="#" class="item" onclick="downloadFile('VBFrontPage')" >VB Front Page</a>
             <a href="#" class="item" onclick="downloadFile('VBAssignment')" >VB Practicle File</a>
             <a href="#" class="item" onclick="downloadFile('DateSheet')">Datesheet</a>
-            <a href="#" class="item">Importent Questions</a>
-            <a href="#" class="item">Sllyabus</a>
+            <a href="https://www.mediafire.com/folder/n73wsmzhtkngx/Presentation" class="item" >Presentations</a>
+            <a href="#" class="item">Syllabus</a>
           </div>`,
   ];
   html = `
