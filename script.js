@@ -168,3 +168,13 @@ function downloadFile(fileName) {
     return;
   }
 }
+
+//NO JS
+document.addEventListener("DOMContentLoaded", function () {
+  const selectElement = document.getElementById("slct");
+
+  selectElement.addEventListener("change", function () {
+    const selectedValue = selectElement.value; // Store the selected value in a variable
+    alert("You selected: " + selectedValue); // Show the alert with the selected value
+  });
+});

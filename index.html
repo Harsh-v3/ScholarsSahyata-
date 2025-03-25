@@ -509,6 +509,10 @@
           z-index: 100;
         }
 
+        .choose-window {
+          width: 50% !important;
+        }
+
         .overlay {
           position: fixed;
           top: 0;
@@ -593,12 +597,262 @@
           height: 60dvh;
           border-radius: 1rem;
         }
+
+        .select {
+          position: relative;
+          width: 50%;
+        }
+
+        .select svg {
+          position: absolute;
+          right: 15px;
+          top: calc(50% - 0.9rem);
+          width: 10px;
+          height: 6px;
+          stroke-width: 2px;
+          stroke: #9098a9;
+          fill: none;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          pointer-events: none;
+        }
+
+        .select select {
+          color: #5a667f;
+          -webkit-appearance: none;
+          padding: 7px 40px 7px 12px;
+          width: 100%;
+          border: 1px solid lightblue;
+          border-radius: 5px;
+          background: #fff;
+          box-shadow: 0 1px 3px -2px #9098a9;
+          cursor: pointer;
+          font-size: 2rem;
+          transition: all 150ms ease;
+        }
+        .select select:required:invalid {
+          color: #5a667f;
+        }
+        .select select option {
+          background-color: whtie;
+        }
+
+        .select select option[value=""][disabled] {
+          display: none;
+        }
+        .select select option[disabled] {
+          background-color: whitesmoke;
+        }
+        .select select:focus {
+          outline: none;
+        }
+        .select select:hover + svg {
+          stroke: #07f;
+        }
+        .sprites {
+          position: absolute;
+          width: 0;
+          height: 0;
+          pointer-events: none;
+          user-select: none;
+        }
+
+        .login {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+        }
+
+        .login--input {
+          border: 1px dashed black;
+          padding: 1rem 2.5rem;
+          font-size: 2rem;
+          text-align: center;
+          width: 12rem;
+          border-radius: 10rem;
+          margin-right: 2rem;
+          transition: all 0.3s;
+        }
+
+        .login--input:focus {
+          outline: none;
+          border: 1px solid #ccc;
+        }
+
+        .login--input::placeholder {
+          color: #bbb;
+        }
+
+        .btn--login {
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-size: 3.2rem;
+          transition: all 0.3s;
+        }
+
+        .btn--login:hover,
+        .btn--login:focus,
+        .btn--sort:hover,
+        .btn--sort:focus {
+          outline: none;
+          color: #777;
+        }
+
+        .ask a {
+          margin-right: 2rem;
+        }
+        .modal-form {
+  /* border: 2px dashed black; */
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+}
+
+        .modal-form label {
+  font-size: 2rem;
+  font-weight: 400;
+
+  color: #222;
+  width: 30%;
+  /* border: 1px solid black; */
+  text-align: center;
+}
+
+.modal-form input {
+  border: none;
+  outline: none;
+  background-color: #b9b9b94f;
+  height: 3rem;
+  width: 70%;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  font-family: inherit;
+  align-self: flex-end;
+  transform: translateY(-3.5rem);
+}
+
+.fileUpload{
+  height: auto !important;
+
+}
       </style>
+      <!-- Choose Popup -->
+      <div class="modal-window choose-window hidden">
+        <button class="close-modal">&times;</button>
+        <div class="cont">
+          <h2 class="heading-secondary u-center-text u-margin-bottom-small">Presentation</h2>
+          <div class="ask ">
+            <h3 class="heading-tertiary u-margin-bottom-small">Did You Already Uploaded PDF ?</h3>
+            <a href="#" class="btn-text">Yes !</a>
+            <a href="#" class="btn-text">No !</a>
+            <a href="#" class="btn-text">Yes , But i forgot USER / PIN !</a>
+            
+          </div>
+        <div class="ask-yes hidden">
+          <h3 class="heading-tertiary u-margin-bottom-small">
+            1. Choose Your Semester
+          </h3>
+          <label class="select" for="slct">
+            <select id="slct" class="u-margin-bottom-small" required="required">
+              <option value="" disabled="disabled" selected="selected">
+                Select option
+              </option>
+              <option value="1" disabled>One</option>
+              <option value="2">Two</option>
+              <option value="3" disabled>Three</option>
+              <option value="4">Four</option>
+              <option value="5" disabled>Five</option>
+              <option value="6">Six</option>
+            </select>
+            <svg>
+              <use xlink:href="#select-arrow-down"></use>
+            </svg>
+          </label>
+          <!-- SVG Sprites-->
+          <svg class="sprites">
+            <symbol id="select-arrow-down" viewbox="0 0 10 6">
+              <polyline points="1 1 5 5 9 1"></polyline>
+            </symbol>
+          </svg>
+
+          <div class="ask-details">
+            <h3 class="heading-tertiary u-margin-bottom-small">
+              2. Enter Your Name & PIN :
+            </h3>
+            <form action="#" class="login u-margin-bottom-small">
+              <input
+                type="text"
+                placeholder="USER"
+                class="login--input login--input--user"
+              />
+              <input
+                type="password"
+                placeholder="PIN"
+                maxlength="4"
+                class="login--input login--input--pin"
+              />
+              <button class="btn--login">&rarr;</button>
+            </form>
+          </div>
+          <div class="downloadOption">
+            <h3 class="heading-tertiary u-margin-bottom-small">
+              3. Download Your PDF :
+            </h3>
+            <a href="#" class="btn-text">Download !</a>
+          </div>
+        </div>
+
+        <div class="ask-no hidden">
+          <h3 class="heading-tertiary 
+u-margin-bottom-small">Set Your Data :</h3>
+<label class="select" for="slct">
+  <select id="slct" class="u-margin-bottom-small" required="required" >
+    <option value="" disabled="disabled" selected="selected">
+      Select Your Semester !
+    </option>
+    <option value="1" disabled>One</option>
+    <option value="2">Two</option>
+    <option value="3" disabled>Three</option>
+    <option value="4">Four</option>
+    <option value="5" disabled>Five</option>
+    <option value="6">Six</option>
+  </select>
+  <svg>
+    <use xlink:href="#select-arrow-down"></use>
+  </svg>
+</label>
+<!-- SVG Sprites-->
+<svg class="sprites">
+  <symbol id="select-arrow-down" viewbox="0 0 10 6">
+    <polyline points="1 1 5 5 9 1"></polyline>
+  </symbol>
+</svg>
+<br><br>
+          <form action="#" class="modal-form ">
+            <label for="user--name"> User Name </label>
+            <input type="text" id="user--name" class="user--name" required/>
+            
+            <label for="pin"> PIN </label>
+            <input type="number" id="pin" maxlength="4" class="PIN" required/>
+            <h3 class="heading-tertiary u-margin-bottom-small">Upload Your PDF / PPT  :</h3>
+            <label for="pdf"> PDF / PPT  </label>
+            <input required class="fileUpload" type="file" accept=".pdf,.ppt,.pptx">
+            
+            <button class="btn-text btn">Send Data </button>
+          </form>
+        </div>
+      </div>
+      </div>
 
       <!-- Popups 2 -->
       <div class="modal-window hidden">
         <button class="close-modal">&times;</button>
-        <div class="cont"></div>
+        <div class="cont">
       </div>
       <div class="overlay hidden"></div>
 
@@ -674,4 +928,5 @@
     </footer>
   </body>
   <script src="script.js"></script>
+  <script src="usersData.js"></script>
 </html>
