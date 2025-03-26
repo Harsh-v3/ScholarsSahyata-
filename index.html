@@ -1,764 +1,706 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Scholars Sahayta - A BCA helping platform providing notes, books, assignments, previous year papers, and results for students. Learn beyond marks!"
-    />
-    <meta
-      name="keywords"
-      content="BCA Notes, BCA Books, BCA Assignments, Previous Year Papers, BCA Study Material, BCA Results, Scholars Sahayta"
-    />
-    <meta name="author" content="Harsh Kumar & Naman Kumar" />
 
-    <!-- google fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <!-- favicon -->
-    <link
-      rel="favicon"
-      type="image/png"
-      href="./Resourses/images/favicon.png"
-    />
-    <!-- style sheets -->
-    <link rel="stylesheet" href="css/style.css" />
-    <!-- <link rel="stylesheet" href="css/stylePopup.css" /> -->
-    <link rel="stylesheet" href="css/icon-font.css.css" />
-    <title>Scholars सहायता</title>
-  </head>
-  <body>
-    <!-- navigation functionality -->
-    <div class="navigation" id="navigation">
-      <input
-        type="checkbox"
-        name="navigation-toggle"
-        id="navigation-toggle"
-        class="navigation__checkbox"
-      />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Scholars Sahayta - A BCA helping platform providing notes, books, assignments, previous year papers, and results for students. Learn beyond marks!" />
+  <meta name="keywords"
+    content="BCA Notes, BCA Books, BCA Assignments, Previous Year Papers, BCA Study Material, BCA Results, Scholars Sahayta" />
+  <meta name="author" content="Harsh Kumar & Naman Kumar" />
 
-      <label for="navigation-toggle" class="navigation__button">
-        <span class="navigation__icon">&nbsp;</span>
-      </label>
+  <!-- google fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <!-- favicon -->
+  <link rel="favicon" type="image/png" href="./Resourses/images/favicon.png" />
+  <!-- style sheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- <link rel="stylesheet" href="css/stylePopup.css" /> -->
+  <link rel="stylesheet" href="css/icon-font.css.css" />
+  <title>Scholars सहायता</title>
+</head>
+<style>
+  .close-modal {
+    position: absolute;
+    top: 1.2rem;
+    right: 2rem;
+    font-size: 4rem;
+    font-weight: bold;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
 
-      <!-- like overlay -->
-      <div class="navigation__background">&nbsp;</div>
-      <nav class="navigation__nav">
-        <ul class="navigation__list u-center-text">
-          <li class="navigation__item">
-            <a href="#about" class="navigation__link"> <span>01</span> Home</a>
-          </li>
-          <li class="navigation__item">
-            <a href="#features" class="navigation__link">
-              <span>02</span> BCA</a
-            >
-          </li>
-          <li class="navigation__item">
-            <a href="#tours" class="navigation__link">
-              <span>03</span> Certification Courses</a
-            >
-          </li>
-          <li class="navigation__item">
-            <a href="#stories" class="navigation__link">
-              <span>04</span> About Us</a
-            >
-          </li>
-          <li class="navigation__item">
-            <a href="#book" class="navigation__link">
-              <span>05</span> Enroll Now !</a
-            >
-          </li>
-        </ul>
-      </nav>
+  /* New Material */
+  .hidden {
+    display: none;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  p {
+    font-size: 1.8rem;
+  }
+
+  .modal-window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 80%;
+    height: auto;
+    padding: 3rem;
+
+    background: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+    z-index: 100;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100dvw;
+    height: 110dvh;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    z-index: 50;
+  }
+
+  .cont {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .btnLink {
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .btns--container {
+    height: 30dvh;
+    display: grid;
+    gap: 2rem;
+
+    grid-template-areas:
+      "one four"
+      "two five"
+      "three six";
+  }
+
+  .cont .heading-secondary {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .btn--1 {
+    grid-area: one;
+  }
+
+  .btn--2 {
+    grid-area: two;
+  }
+
+  .btn--3 {
+    grid-area: three;
+  }
+
+  .btn--4 {
+    grid-area: four;
+  }
+
+  .btn--5 {
+    grid-area: five;
+  }
+
+  .btn--6 {
+    grid-area: six;
+  }
+
+  .item {
+    background-color: #f5f5f5;
+    border-radius: 2px;
+    border-radius: 2px;
+    border-right: 1rem solid greenyellow;
+    border-bottom: 1px dashed greenyellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #777;
+  }
+
+  .item:hover {
+    background-color: #b7ffe56b;
+    transition: all 0.2s ease-in;
+  }
+
+  .cont img {
+    align-self: center;
+    /* width: 90%; */
+    height: 60dvh;
+    border-radius: 1rem;
+  }
+
+  .select {
+    position: relative;
+    width: 50%;
+  }
+
+  .select svg {
+    position: absolute;
+    right: 15px;
+    top: calc(50% - 0.9rem);
+    width: 10px;
+    height: 6px;
+    stroke-width: 2px;
+    stroke: #9098a9;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    pointer-events: none;
+  }
+
+  .select select {
+    color: #5a667f;
+    -webkit-appearance: none;
+    padding: 7px 40px 7px 12px;
+    width: 100%;
+    border: 1px solid lightblue;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 1px 3px -2px #9098a9;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: all 150ms ease;
+  }
+
+  .select select:required:invalid {
+    color: #5a667f;
+  }
+
+  .select select option {
+    background-color: whtie;
+  }
+
+  .select select option[value=""][disabled] {
+    display: none;
+  }
+
+  .select select option[disabled] {
+    background-color: whitesmoke;
+  }
+
+  .select select:focus {
+    outline: none;
+  }
+
+  .select select:hover+svg {
+    stroke: #07f;
+  }
+
+  .sprites {
+    position: absolute;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .login {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .login--input {
+    border: 1px dashed black;
+    padding: 1rem 2.5rem;
+    font-size: 2rem;
+    text-align: center;
+    width: 12rem;
+    border-radius: 10rem;
+    margin-right: 2rem;
+    transition: all 0.3s;
+  }
+
+  .login--input:focus {
+    outline: none;
+    border: 1px solid #ccc;
+  }
+
+  .login--input::placeholder {
+    color: #bbb;
+  }
+
+  .btn--login {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 3.2rem;
+    transition: all 0.3s;
+  }
+
+  .btn--login:hover,
+  .btn--login:focus,
+  .btn--sort:hover,
+  .btn--sort:focus {
+    outline: none;
+    color: #777;
+  }
+
+  .ask a {
+    margin-right: 2rem;
+  }
+
+  .modal-form {
+    /* border: 2px dashed black; */
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
+  }
+
+  .modal-form label {
+    font-size: 2rem;
+    font-weight: 400;
+
+    color: #222;
+    width: 30%;
+    /* border: 1px solid black; */
+    text-align: center;
+  }
+
+  .modal-form input {
+    border: none;
+    outline: none;
+    background-color: #b9b9b94f;
+    height: 3rem;
+    width: 70%;
+    border-radius: 0.5rem;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    font-family: inherit;
+    align-self: flex-end;
+    transform: translateY(-3.5rem);
+  }
+
+  .fileUpload {
+    height: auto !important;
+  }
+
+  .disable {
+    pointer-events: none;
+  transition: all 3s ease-in-out !important;
+    opacity: .5 !important;
+    
+  }
+
+</style>
+<body>
+  <!-- navigation functionality -->
+  <div class="navigation" id="navigation">
+    <input type="checkbox" name="navigation-toggle" id="navigation-toggle" class="navigation__checkbox" />
+
+    <label for="navigation-toggle" class="navigation__button">
+      <span class="navigation__icon">&nbsp;</span>
+    </label>
+
+    <!-- like overlay -->
+    <div class="navigation__background">&nbsp;</div>
+    <nav class="navigation__nav">
+      <ul class="navigation__list u-center-text">
+        <li class="navigation__item">
+          <a href="#about" class="navigation__link"> <span>01</span> Home</a>
+        </li>
+        <li class="navigation__item">
+          <a href="#features" class="navigation__link">
+            <span>02</span> BCA</a>
+        </li>
+        <li class="navigation__item">
+          <a href="#tours" class="navigation__link">
+            <span>03</span> Certification Courses</a>
+        </li>
+        <li class="navigation__item">
+          <a href="#stories" class="navigation__link">
+            <span>04</span> About Us</a>
+        </li>
+        <li class="navigation__item">
+          <a href="#book" class="navigation__link">
+            <span>05</span> Enroll Now !</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- landing page / header -->
+  <header class="header" id="header">
+    <div class="header__logo-box">
+      <img src="Resourses/images/logo-white.png" alt="logo" class="header__logo" />
     </div>
+    <div class="header__text-box">
+      <h1 class="heading-primary">
+        <span class="heading-primary--main">Scholars <br />
+          <span class="heading-primary--main--hindi">सहायता</span>
+        </span>
+        <span class="heading-primary--sub">makes work easier</span>
+      </h1>
 
-    <!-- landing page / header -->
-    <header class="header" id="header">
-      <div class="header__logo-box">
-        <img
-          src="Resourses/images/logo-white.png"
-          alt="logo"
-          class="header__logo"
-        />
+      <a href="#features" class="btn btn--white btn--animated">Get Started !</a>
+    </div>
+  </header>
+
+  <!-- main -->
+  <main>
+    <!-- about section -->
+    <section class="section-about" id="about">
+      <div class="u-center-text u-margin-bottom-big">
+        <h2 class="heading-secondary">Exiciting Learning For BCA STUDENTS</h2>
       </div>
-      <div class="header__text-box">
-        <h1 class="heading-primary">
-          <span class="heading-primary--main"
-            >Scholars <br />
-            <span class="heading-primary--main--hindi">सहायता</span>
-          </span>
-          <span class="heading-primary--sub">makes work easier</span>
-        </h1>
 
-        <a href="#features" class="btn btn--white btn--animated"
-          >Get Started !</a
-        >
+      <div class="row">
+        <div class="col-1-of-2">
+          <h3 class="heading-tertiary u-margin-bottom-small">
+            Boost your knowledge with quality notes
+          </h3>
+          <p class="paragraph">
+            we provide well strucutred notes for all BCA subjects,helping you
+            understand complex topics easily. Learn programming , computer
+            graphics , databsae management , and more with simplified content.
+          </p>
+          <h3 class="heading-tertiary u-margin-bottom-small">
+            Acess books & study materials
+          </h3>
+          <p class="paragraph">
+            Find essential textboxes , reference books , and study materials
+            to support your learning . Download PDFs, read guides , and stay
+            ahead in your semester.
+          </p>
+
+          <a href="#features" class="btn-text">Explore Now &rarr;</a>
+        </div>
+        <div class="col-1-of-2">
+          <div class="composition">
+            <img src="Resourses/images/nat-1-large.jpg" alt="#" class="composition__photo composition__photo--p1" /><img
+              src="Resourses/images/nat-2-large.jpg" alt="#" class="composition__photo composition__photo--p2" /><img
+              src="Resourses/images/nat-3-large.jpg" alt="#" class="composition__photo composition__photo--p3" />
+          </div>
+        </div>
       </div>
-    </header>
+    </section>
 
-    <!-- main -->
-    <main>
-      <!-- about section -->
-      <section class="section-about" id="about">
-        <div class="u-center-text u-margin-bottom-big">
-          <h2 class="heading-secondary">Exiciting Learning For BCA STUDENTS</h2>
-        </div>
-
-        <div class="row">
-          <div class="col-1-of-2">
+    <!-- features section -->
+    <section class="section-features" id="features">
+      <div class="row">
+        <div class="col-1-of-4">
+          <div class="feature-box">
+            <i class="feature-box__icon icon-basic-book"></i>
             <h3 class="heading-tertiary u-margin-bottom-small">
-              Boost your knowledge with quality notes
+              Books & Notes
             </h3>
-            <p class="paragraph">
-              we provide well strucutred notes for all BCA subjects,helping you
-              understand complex topics easily. Learn programming , computer
-              graphics , databsae management , and more with simplified content.
+            <p class="feature-box__text">
+              Expand your knowledge with a collection of essential BCA books
+              and study materials. Download PDFs of textbooks, reference
+              books, and guides to help you understand concepts better. <br />
+              <a href="#features" class="btn btn--green btn--in open-modal">Access
+              </a>
             </p>
+          </div>
+        </div>
+
+        <div class="col-1-of-4">
+          <div class="feature-box">
+            <i class="feature-box__icon icon-basic-notebook-pen"></i>
             <h3 class="heading-tertiary u-margin-bottom-small">
-              Acess books & study materials
+              Question Papers
             </h3>
-            <p class="paragraph">
-              Find essential textboxes , reference books , and study materials
-              to support your learning . Download PDFs, read guides , and stay
-              ahead in your semester.
+            <p class="feature-box__text">
+              Prepare smartly with past exam papers. Review previous years'
+              questions to understand patterns and topics. Improve your
+              chances of scoring high by practicing real exam questions.
+              <br />
+
+              <a href="#features" class="btn btn--green btn--in open-modal">Access
+              </a>
             </p>
-
-            <a href="#features" class="btn-text">Explore Now &rarr;</a>
-          </div>
-          <div class="col-1-of-2">
-            <div class="composition">
-              <img
-                src="Resourses/images/nat-1-large.jpg"
-                alt="#"
-                class="composition__photo composition__photo--p1"
-              /><img
-                src="Resourses/images/nat-2-large.jpg"
-                alt="#"
-                class="composition__photo composition__photo--p2"
-              /><img
-                src="Resourses/images/nat-3-large.jpg"
-                alt="#"
-                class="composition__photo composition__photo--p3"
-              />
-            </div>
           </div>
         </div>
-      </section>
 
-      <!-- features section -->
-      <section class="section-features" id="features">
-        <div class="row">
-          <div class="col-1-of-4">
-            <div class="feature-box">
-              <i class="feature-box__icon icon-basic-book"></i>
-              <h3 class="heading-tertiary u-margin-bottom-small">
-                Books & Notes
-              </h3>
-              <p class="feature-box__text">
-                Expand your knowledge with a collection of essential BCA books
-                and study materials. Download PDFs of textbooks, reference
-                books, and guides to help you understand concepts better. <br />
-                <a href="#features" class="btn btn--green btn--in open-modal"
-                  >Access
-                </a>
-              </p>
-            </div>
-          </div>
-
-          <div class="col-1-of-4">
-            <div class="feature-box">
-              <i class="feature-box__icon icon-basic-notebook-pen"></i>
-              <h3 class="heading-tertiary u-margin-bottom-small">
-                Question Papers
-              </h3>
-              <p class="feature-box__text">
-                Prepare smartly with past exam papers. Review previous years'
-                questions to understand patterns and topics. Improve your
-                chances of scoring high by practicing real exam questions.
-                <br />
-
-                <a href="#features" class="btn btn--green btn--in open-modal"
-                  >Access
-                </a>
-              </p>
-            </div>
-          </div>
-
-          <div class="col-1-of-4">
-            <div class="feature-box">
-              <i class="feature-box__icon icon-basic-notebook"></i>
-              <h3 class="heading-tertiary u-margin-bottom-small">Assignment</h3>
-              <p class="feature-box__text">
-                Get assignment solutions , prewritten assignments and guidance
-                for all BCA subjects. Access structured project ideas, and
-                reference materials to complete your assignments. <br />
-                <a href="#features" class="btn btn--green btn--in open-modal"
-                  >Access
-                </a>
-              </p>
-            </div>
-          </div>
-
-          <div class="col-1-of-4">
-            <div class="feature-box">
-              <i class="feature-box__icon icon-basic-folder-multiple"></i>
-              <h3 class="heading-tertiary u-margin-bottom-small">Other</h3>
-              <p class="feature-box__text">
-                This section includes results, timetables, special notes,
-                question papers, importent dates, and much more to support your
-                BCA journey. Stay updated with all essential resources! <br />
-                <a href="#features" class="btn btn--green btn--in open-modal"
-                  >Access
-                </a>
-              </p>
-            </div>
+        <div class="col-1-of-4">
+          <div class="feature-box">
+            <i class="feature-box__icon icon-basic-notebook"></i>
+            <h3 class="heading-tertiary u-margin-bottom-small">Assignment</h3>
+            <p class="feature-box__text">
+              Get assignment solutions , prewritten assignments and guidance
+              for all BCA subjects. Access structured project ideas, and
+              reference materials to complete your assignments. <br />
+              <a href="#features" class="btn btn--green btn--in open-modal">Access
+              </a>
+            </p>
           </div>
         </div>
-      </section>
 
-      <!-- tours section -->
-      <section class="section-tours" id="tours">
-        <div class="u-center-text u-margin-bottom-big">
-          <h2 class="heading-secondary">Certification Courses</h2>
+        <div class="col-1-of-4">
+          <div class="feature-box">
+            <i class="feature-box__icon icon-basic-folder-multiple"></i>
+            <h3 class="heading-tertiary u-margin-bottom-small">Other</h3>
+            <p class="feature-box__text">
+              This section includes results, timetables, special notes,
+              question papers, importent dates, and much more to support your
+              BCA journey. Stay updated with all essential resources! <br />
+              <a href="#features" class="btn btn--green btn--in open-modal">Access
+              </a>
+            </p>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <div class="row">
-          <div class="col-1-of-3">
-            <div class="card">
-              <div class="card__side card__side--front">
-                <div class="card__image card__image--1">&nbsp;</div>
-                <h4 class="card__heading">
-                  <span class="card__heading-span card__heading-span--1"
-                    >Frontend Developer</span
-                  >
-                </h4>
-                <div class="card__text">
-                  <ul>
-                    <li>Duration: 3 months</li>
-                    <li>Up to 50 Student's Batch</li>
-                    <li>Experts guides</li>
-                    <li>Live Sessions</li>
-                    <li>Job Placements</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="card__side card__side--back card__side--back-1">
-                <div class="card__cta u-center-text">
-                  <div class="card__price">
-                    <p class="card__price-only">Only</p>
-                    <p class="card__price-value">$29</p>
-                  </div>
-                  <a href="#popup" class="btn btn--white">Enroll now!</a>
-                </div>
+    <!-- tours section -->
+    <section class="section-tours" id="tours">
+      <div class="u-center-text u-margin-bottom-big">
+        <h2 class="heading-secondary">Certification Courses</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-1-of-3">
+          <div class="card">
+            <div class="card__side card__side--front">
+              <div class="card__image card__image--1">&nbsp;</div>
+              <h4 class="card__heading">
+                <span class="card__heading-span card__heading-span--1">Frontend Developer</span>
+              </h4>
+              <div class="card__text">
+                <ul>
+                  <li>Duration: 3 months</li>
+                  <li>Up to 50 Student's Batch</li>
+                  <li>Experts guides</li>
+                  <li>Live Sessions</li>
+                  <li>Job Placements</li>
+                </ul>
               </div>
             </div>
-          </div>
-          <div class="col-1-of-3">
-            <div class="card">
-              <div class="card__side card__side--front">
-                <div class="card__image card__image--2">&nbsp;</div>
-                <h4 class="card__heading">
-                  <span class="card__heading-span card__heading-span--2"
-                    >Backend Developer</span
-                  >
-                </h4>
-                <div class="card__text">
-                  <ul>
-                    <li>Duration: 6 months</li>
-                    <li>Up to 50 Student's Batch</li>
-                    <li>Experts guides</li>
-                    <li>Live Sessions</li>
-                    <li>Job Placements</li>
-                  </ul>
+            <div class="card__side card__side--back card__side--back-1">
+              <div class="card__cta u-center-text">
+                <div class="card__price">
+                  <p class="card__price-only">Only</p>
+                  <p class="card__price-value">$29</p>
                 </div>
-              </div>
-              <div class="card__side card__side--back card__side--back-2">
-                <div class="card__cta u-center-text">
-                  <div class="card__price">
-                    <p class="card__price-only">Only</p>
-                    <p class="card__price-value">$49</p>
-                  </div>
-                  <a href="#popup" class="btn btn--white">Enroll now!</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-1-of-3">
-            <div class="card">
-              <div class="card__side card__side--front">
-                <div class="card__image card__image--3">&nbsp;</div>
-                <h4 class="card__heading">
-                  <span class="card__heading-span card__heading-span--3"
-                    >Database Management</span
-                  >
-                </h4>
-                <div class="card__text">
-                  <ul>
-                    <li>Duration: 8 months</li>
-                    <li>Up to 30 Student's Batch</li>
-                    <li>Experts guides</li>
-                    <li>Live Sessions</li>
-                    <li>Job Placements</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="card__side card__side--back card__side--back-3">
-                <div class="card__cta u-center-text">
-                  <div class="card__price">
-                    <p class="card__price-only">Only</p>
-                    <p class="card__price-value">$59</p>
-                  </div>
-                  <a href="#popup" class="btn btn--white">Enroll now!</a>
-                </div>
+                <a href="#popup" class="btn btn--white">Enroll now!</a>
               </div>
             </div>
           </div>
         </div>
-        <div class="u-center-text u-margin-top-huge">
-          <a href="#book" class="btn btn--green btn--animated"
-            >Discover All Courses</a
-          >
-        </div>
-      </section>
-
-      <!-- stories / testamonial section -->
-      <section class="section-stories" id="stories">
-        <div class="bg-video">
-          <video class="bg-video__content" autoplay loop muted>
-            <source src="Resourses/images/video.mp4" type="video/mp4" />
-            <source src="Resourses/images/video.webm" type="video/webm" />
-            Your Browser is not supported !
-          </video>
-        </div>
-        <div class="u-margin-bottom-big u-center-text">
-          <h2 class="heading-secondary">About the creators</h2>
-        </div>
-        <div class="row">
-          <div class="story">
-            <figure class="story__shape">
-              <img
-                src="Resourses/images/nat-8.jpg"
-                class="story__img"
-                alt="Image"
-              />
-              <figcaption class="story__caption">Harsh Kumar</figcaption>
-            </figure>
-            <div class="story__text">
-              <h3 class="heading-tertiary u-margin-bottom-small">
-                A BCA Student & Web Developer
-              </h3>
-              <p>
-                Harsh Kumar designed and created the structure and style of this
-                website, ensuring a clean and user-friendly experience. He
-                strongly believes that students should focus on learning real
-                skills rather than just studying for marks. His aim is to make
-                education interactive and accessible for every BCA student.
-              </p>
+        <div class="col-1-of-3">
+          <div class="card">
+            <div class="card__side card__side--front">
+              <div class="card__image card__image--2">&nbsp;</div>
+              <h4 class="card__heading">
+                <span class="card__heading-span card__heading-span--2">Backend Developer</span>
+              </h4>
+              <div class="card__text">
+                <ul>
+                  <li>Duration: 6 months</li>
+                  <li>Up to 50 Student's Batch</li>
+                  <li>Experts guides</li>
+                  <li>Live Sessions</li>
+                  <li>Job Placements</li>
+                </ul>
+              </div>
+            </div>
+            <div class="card__side card__side--back card__side--back-2">
+              <div class="card__cta u-center-text">
+                <div class="card__price">
+                  <p class="card__price-only">Only</p>
+                  <p class="card__price-value">$49</p>
+                </div>
+                <a href="#popup" class="btn btn--white">Enroll now!</a>
+              </div>
             </div>
           </div>
         </div>
-
-        <div class="row">
-          <div class="story">
-            <figure class="story__shape">
-              <img
-                src="Resourses/images/nat-9.jpg"
-                class="story__img"
-                alt="Image"
-              />
-              <figcaption class="story__caption">Naman Kumar</figcaption>
-            </figure>
-            <div class="story__text">
-              <h3 class="heading-tertiary u-margin-bottom-small">
-                A BCA Student - Backend Manager & Web Designer
-              </h3>
-              <p>
-                Naman Kumar is handle many operations of this platform, handling
-                the logo, name, study materials, and other backend operations.
-                He believes that every student should have equal access to the
-                best content, ensuring no one is left behind in their learning
-                journey. His goal is to make education fair and resourceful for
-                all.
-              </p>
+        <div class="col-1-of-3">
+          <div class="card">
+            <div class="card__side card__side--front">
+              <div class="card__image card__image--3">&nbsp;</div>
+              <h4 class="card__heading">
+                <span class="card__heading-span card__heading-span--3">Database Management</span>
+              </h4>
+              <div class="card__text">
+                <ul>
+                  <li>Duration: 8 months</li>
+                  <li>Up to 30 Student's Batch</li>
+                  <li>Experts guides</li>
+                  <li>Live Sessions</li>
+                  <li>Job Placements</li>
+                </ul>
+              </div>
+            </div>
+            <div class="card__side card__side--back card__side--back-3">
+              <div class="card__cta u-center-text">
+                <div class="card__price">
+                  <p class="card__price-only">Only</p>
+                  <p class="card__price-value">$59</p>
+                </div>
+                <a href="#popup" class="btn btn--white">Enroll now!</a>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+      <div class="u-center-text u-margin-top-huge">
+        <a href="#book" class="btn btn--green btn--animated">Discover All Courses</a>
+      </div>
+    </section>
 
-        <div class="u-margin-top-huge u-center-text">
-          <a href="#" class="btn-text">Contact Us &rarr;</a>
-        </div>
-      </section>
-
-      <!-- Enroll / form section -->
-      <section class="section-book" id="book">
-        <div class="row">
-          <div class="book">
-            <div class="book__form">
-              <form action="#" method="post" class="form">
-                <div class="u-margin-bottom-medium">
-                  <h2 class="heading-secondary">Enroll Now !</h2>
-                </div>
-                <div class="form__group">
-                  <input
-                    type="text"
-                    class="form__input"
-                    placeholder="Full Name"
-                    required
-                    id="name"
-                  />
-
-                  <label for="name" class="form__label">Full Name</label>
-                </div>
-                <div class="form__group">
-                  <input
-                    type="email"
-                    class="form__input"
-                    placeholder="Email Address"
-                    required
-                    id="email"
-                  />
-                  <label for="email" class="form__label">Email address</label>
-                </div>
-
-                <div class="form__group u-margin-bottom-medium">
-                  <div class="form__radio-group">
-                    <input
-                      type="radio"
-                      id="small"
-                      name="group-size"
-                      class="form__radio-input"
-                    />
-                    <label for="small" class="form__radio-label">
-                      <span class="form__radio-button"></span>
-                      Online Classes
-                    </label>
-                  </div>
-                  <div class="form__radio-group">
-                    <input
-                      type="radio"
-                      id="large"
-                      class="form__radio-input"
-                      name="group-size"
-                    />
-                    <label for="large" class="form__radio-label" disabled>
-                      <span class="form__radio-button"></span>
-                      Offline Classes
-                    </label>
-                  </div>
-                </div>
-
-                <div class="form__group">
-                  <button class="btn btn--green" type="submit">
-                    Next Step &rarr;
-                  </button>
-                </div>
-              </form>
-            </div>
+    <!-- stories / testamonial section -->
+    <section class="section-stories" id="stories">
+      <div class="bg-video">
+        <video class="bg-video__content" autoplay loop muted>
+          <source src="Resourses/images/video.mp4" type="video/mp4" />
+          <source src="Resourses/images/video.webm" type="video/webm" />
+          Your Browser is not supported !
+        </video>
+      </div>
+      <div class="u-margin-bottom-big u-center-text">
+        <h2 class="heading-secondary">About the creators</h2>
+      </div>
+      <div class="row">
+        <div class="story">
+          <figure class="story__shape">
+            <img src="Resourses/images/nat-8.jpg" class="story__img" alt="Image" />
+            <figcaption class="story__caption">Harsh Kumar</figcaption>
+          </figure>
+          <div class="story__text">
+            <h3 class="heading-tertiary u-margin-bottom-small">
+              A BCA Student & Web Developer
+            </h3>
+            <p>
+              Harsh Kumar designed and created the structure and style of this
+              website, ensuring a clean and user-friendly experience. He
+              strongly believes that students should focus on learning real
+              skills rather than just studying for marks. His aim is to make
+              education interactive and accessible for every BCA student.
+            </p>
           </div>
         </div>
-      </section>
+      </div>
 
-      <style>
-        .close-modal {
-          position: absolute;
-          top: 1.2rem;
-          right: 2rem;
-          font-size: 4rem;
-          font-weight: bold;
-          border: none;
-          background: none;
-          cursor: pointer;
-        }
-
-        /* New Material */
-        .hidden {
-          display: none;
-        }
-
-        h1 {
-          font-size: 2.5rem;
-          margin-bottom: 2rem;
-        }
-
-        p {
-          font-size: 1.8rem;
-        }
-
-        .modal-window {
-          position: fixed;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-
-          width: 80%;
-          height: auto;
-          padding: 3rem;
-
-          background: #fff;
-          border-radius: 0.5rem;
-          box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
-          z-index: 100;
-        }
-
-        .choose-window {
-          width: 50% !important;
-        }
-
-        .overlay {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100dvw;
-          height: 110dvh;
-          background-color: rgba(0, 0, 0, 0.6);
-          backdrop-filter: blur(3px);
-          z-index: 50;
-        }
-
-        .cont {
-          width: 100%;
-          height: auto;
-          display: flex;
-          flex-direction: column;
-        }
-
-        .btnLink {
-          text-align: center;
-          cursor: pointer;
-        }
-
-        .btns--container {
-          height: 30dvh;
-          display: grid;
-          gap: 2rem;
-
-          grid-template-areas:
-            "one four"
-            "two five"
-            "three six";
-        }
-
-        .cont .heading-secondary {
-          width: 90%;
-          margin-left: 5%;
-        }
-
-        .btn--1 {
-          grid-area: one;
-        }
-        .btn--2 {
-          grid-area: two;
-        }
-        .btn--3 {
-          grid-area: three;
-        }
-        .btn--4 {
-          grid-area: four;
-        }
-        .btn--5 {
-          grid-area: five;
-        }
-        .btn--6 {
-          grid-area: six;
-        }
-
-        .item {
-          background-color: #f5f5f5;
-          border-radius: 2px;
-          border-radius: 2px;
-          border-right: 1rem solid greenyellow;
-          border-bottom: 1px dashed greenyellow;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          cursor: pointer;
-          font-size: 1.2rem;
-          text-decoration: none;
-          color: #777;
-        }
-
-        .item:hover {
-          background-color: #b7ffe56b;
-          transition: all 0.2s ease-in;
-        }
-
-        .cont img {
-          align-self: center;
-          /* width: 90%; */
-          height: 60dvh;
-          border-radius: 1rem;
-        }
-
-        .select {
-          position: relative;
-          width: 50%;
-        }
-
-        .select svg {
-          position: absolute;
-          right: 15px;
-          top: calc(50% - 0.9rem);
-          width: 10px;
-          height: 6px;
-          stroke-width: 2px;
-          stroke: #9098a9;
-          fill: none;
-          stroke-linecap: round;
-          stroke-linejoin: round;
-          pointer-events: none;
-        }
-
-        .select select {
-          color: #5a667f;
-          -webkit-appearance: none;
-          padding: 7px 40px 7px 12px;
-          width: 100%;
-          border: 1px solid lightblue;
-          border-radius: 5px;
-          background: #fff;
-          box-shadow: 0 1px 3px -2px #9098a9;
-          cursor: pointer;
-          font-size: 2rem;
-          transition: all 150ms ease;
-        }
-        .select select:required:invalid {
-          color: #5a667f;
-        }
-        .select select option {
-          background-color: whtie;
-        }
-
-        .select select option[value=""][disabled] {
-          display: none;
-        }
-        .select select option[disabled] {
-          background-color: whitesmoke;
-        }
-        .select select:focus {
-          outline: none;
-        }
-        .select select:hover + svg {
-          stroke: #07f;
-        }
-        .sprites {
-          position: absolute;
-          width: 0;
-          height: 0;
-          pointer-events: none;
-          user-select: none;
-        }
-
-        .login {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 1rem;
-        }
-
-        .login--input {
-          border: 1px dashed black;
-          padding: 1rem 2.5rem;
-          font-size: 2rem;
-          text-align: center;
-          width: 12rem;
-          border-radius: 10rem;
-          margin-right: 2rem;
-          transition: all 0.3s;
-        }
-
-        .login--input:focus {
-          outline: none;
-          border: 1px solid #ccc;
-        }
-
-        .login--input::placeholder {
-          color: #bbb;
-        }
-
-        .btn--login {
-          background: none;
-          border: none;
-          cursor: pointer;
-          font-size: 3.2rem;
-          transition: all 0.3s;
-        }
-
-        .btn--login:hover,
-        .btn--login:focus,
-        .btn--sort:hover,
-        .btn--sort:focus {
-          outline: none;
-          color: #777;
-        }
-
-        .ask a {
-          margin-right: 2rem;
-        }
-        .modal-form {
-  /* border: 2px dashed black; */
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-
-}
-
-        .modal-form label {
-  font-size: 2rem;
-  font-weight: 400;
-
-  color: #222;
-  width: 30%;
-  /* border: 1px solid black; */
-  text-align: center;
-}
-
-.modal-form input {
-  border: none;
-  outline: none;
-  background-color: #b9b9b94f;
-  height: 3rem;
-  width: 70%;
-  border-radius: 0.5rem;
-  text-align: center;
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: #333;
-  font-family: inherit;
-  align-self: flex-end;
-  transform: translateY(-3.5rem);
-}
-
-.fileUpload{
-  height: auto !important;
-
-}
-      </style>
-      <!-- Choose Popup -->
-      <div class="modal-window choose-window hidden">
-        <button class="close-modal">&times;</button>
-        <div class="cont">
-          <h2 class="heading-secondary u-center-text u-margin-bottom-small">Presentation</h2>
-          <div class="ask ">
-            <h3 class="heading-tertiary u-margin-bottom-small">Did You Already Uploaded PDF ?</h3>
-            <a href="#" class="btn-text">Yes !</a>
-            <a href="#" class="btn-text">No !</a>
-            <a href="#" class="btn-text">Yes , But i forgot USER / PIN !</a>
-            
+      <div class="row">
+        <div class="story">
+          <figure class="story__shape">
+            <img src="Resourses/images/nat-9.jpg" class="story__img" alt="Image" />
+            <figcaption class="story__caption">Naman Kumar</figcaption>
+          </figure>
+          <div class="story__text">
+            <h3 class="heading-tertiary u-margin-bottom-small">
+              A BCA Student - Backend Manager & Web Designer
+            </h3>
+            <p>
+              Naman Kumar is handle many operations of this platform, handling
+              the logo, name, study materials, and other backend operations.
+              He believes that every student should have equal access to the
+              best content, ensuring no one is left behind in their learning
+              journey. His goal is to make education fair and resourceful for
+              all.
+            </p>
           </div>
+        </div>
+      </div>
+
+      <div class="u-margin-top-huge u-center-text">
+        <a href="#" class="btn-text">Contact Us &rarr;</a>
+      </div>
+    </section>
+
+    <!-- Enroll / form section -->
+    <section class="section-book" id="book">
+      <div class="row">
+        <div class="book">
+          <div class="book__form">
+            <form action="#" method="post" class="form">
+              <div class="u-margin-bottom-medium">
+                <h2 class="heading-secondary">Enroll Now !</h2>
+              </div>
+              <div class="form__group">
+                <input type="text" class="form__input" placeholder="Full Name" required id="name" />
+
+                <label for="name" class="form__label">Full Name</label>
+              </div>
+              <div class="form__group">
+                <input type="email" class="form__input" placeholder="Email Address" required id="email" />
+                <label for="email" class="form__label">Email address</label>
+              </div>
+
+              <div class="form__group u-margin-bottom-medium">
+                <div class="form__radio-group">
+                  <input type="radio" id="small" name="group-size" class="form__radio-input" />
+                  <label for="small" class="form__radio-label">
+                    <span class="form__radio-button"></span>
+                    Online Classes
+                  </label>
+                </div>
+                <div class="form__radio-group">
+                  <input type="radio" id="large" class="form__radio-input" name="group-size" />
+                  <label for="large" class="form__radio-label" disabled>
+                    <span class="form__radio-button"></span>
+                    Offline Classes
+                  </label>
+                </div>
+              </div>
+
+              <div class="form__group">
+                <button class="btn btn--green" type="submit">
+                  Next Step &rarr;
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Choose Popup -->
+    <div class="modal-window choose-window hidden">
+      <button class="close-modal">&times;</button>
+      <div class="cont">
+        <h2 class="heading-secondary u-center-text u-margin-bottom-small">Presentation</h2>
+
+        <!-- Ask  -->
+        <div class="ask ">
+          <h3 class="heading-tertiary u-margin-bottom-small">Did You Already Uploaded PDF ?</h3>
+          <a href="#" class="btn-text ask--y">Yes !</a>
+          <a href="#" class="btn-text ask--n">No !</a>
+          <a href="#" class="btn-text ask--n">Yes , But i forgot USER / PIN !</a>
+
+        </div>
+        <!-- if Ask Yes -->
         <div class="ask-yes hidden">
+        <!-- ask Sem  -->
           <h3 class="heading-tertiary u-margin-bottom-small">
             1. Choose Your Semester
           </h3>
-          <label class="select" for="slct">
-            <select id="slct" class="u-margin-bottom-small" required="required">
+          <label class="select " for="slct">
+            <select id="slct" class="u-margin-bottom-small login--input--sem" required="required">
               <option value="" disabled="disabled" selected="selected">
                 Select option
               </option>
@@ -780,79 +722,80 @@
             </symbol>
           </svg>
 
-          <div class="ask-details">
+  <!-- ask user name and pin -->
+          <div class="ask-details disable">
             <h3 class="heading-tertiary u-margin-bottom-small">
               2. Enter Your Name & PIN :
             </h3>
             <form action="#" class="login u-margin-bottom-small">
-              <input
-                type="text"
-                placeholder="USER"
-                class="login--input login--input--user"
-              />
-              <input
-                type="password"
-                placeholder="PIN"
-                maxlength="4"
-                class="login--input login--input--pin"
-              />
+              <input type="text" placeholder="USER" class="login--input login--input--user" />
+              <input type="password" placeholder="PIN" maxlength="4" class="login--input login--input--pin" />
               <button class="btn--login">&rarr;</button>
             </form>
           </div>
-          <div class="downloadOption">
+
+<!-- provide download option -->
+          <div class="downloadOption disable">
             <h3 class="heading-tertiary u-margin-bottom-small">
               3. Download Your PDF :
             </h3>
-            <a href="#" class="btn-text">Download !</a>
+            <a href="#" class="btn-text downloadBtn" target="_blank" >Download !</a>
           </div>
         </div>
 
+        <!-- if Ask No -->
         <div class="ask-no hidden">
-          <h3 class="heading-tertiary 
-u-margin-bottom-small">Set Your Data :</h3>
-<label class="select" for="slct">
-  <select id="slct" class="u-margin-bottom-small" required="required" >
-    <option value="" disabled="disabled" selected="selected">
-      Select Your Semester !
-    </option>
-    <option value="1" disabled>One</option>
-    <option value="2">Two</option>
-    <option value="3" disabled>Three</option>
-    <option value="4">Four</option>
-    <option value="5" disabled>Five</option>
-    <option value="6">Six</option>
-  </select>
-  <svg>
-    <use xlink:href="#select-arrow-down"></use>
-  </svg>
-</label>
-<!-- SVG Sprites-->
-<svg class="sprites">
-  <symbol id="select-arrow-down" viewbox="0 0 10 6">
-    <polyline points="1 1 5 5 9 1"></polyline>
-  </symbol>
-</svg>
-<br><br>
-          <form action="#" class="modal-form ">
+
+          <h3 class="heading-tertiary u-margin-bottom-small">Set Your Data :</h3>
+
+          <!-- ask for Sem -->
+          <label class="select" for="slct">
+            <select id="slct" class="u-margin-bottom-small sign--input--sem" required="required">
+              <option value="" disabled="disabled" selected="selected">
+                Select Your Semester !
+              </option>
+              <option value="1" disabled>One</option>
+              <option value="2">Two</option>
+              <option value="3" disabled>Three</option>
+              <option value="4">Four</option>
+              <option value="5" disabled>Five</option>
+              <option value="6">Six</option>
+            </select>
+            <svg>
+              <use xlink:href="#select-arrow-down"></use>
+            </svg>
+          </label>
+          <!-- SVG Sprites-->
+          <svg class="sprites">
+            <symbol id="select-arrow-down" viewbox="0 0 10 6">
+              <polyline points="1 1 5 5 9 1"></polyline>
+            </symbol>
+          </svg>
+          <br><br>
+
+          <form action="#" class="modal-form sign--input--form disable">
+            <label for="user--roll "> Gmail / Phone </label>
+            <input type="text" id="user--roll" class="user--roll sign--input--details" required />
+
             <label for="user--name"> User Name </label>
-            <input type="text" id="user--name" class="user--name" required/>
-            
+            <input type="text" id="user--name" class="user--name sign--input--name" required />
+
             <label for="pin"> PIN </label>
-            <input type="number" id="pin" maxlength="4" class="PIN" required/>
-            <h3 class="heading-tertiary u-margin-bottom-small">Upload Your PDF / PPT  :</h3>
-            <label for="pdf"> PDF / PPT  </label>
-            <input required class="fileUpload" type="file" accept=".pdf,.ppt,.pptx">
-            
-            <button class="btn-text btn">Send Data </button>
+            <input type="number" id="pin" maxlength="4" class="PIN sign--input--pin" required />
+            <h3 class="heading-tertiary u-margin-bottom-small ">Upload Your PDF / PPT :</h3>
+            <label for="pdf"> PDF / PPT </label>
+            <input required class="fileUpload sign--input--file" type="file" accept=".pdf,.ppt,.pptx">
+
+            <button class="btn-text btn sign--input--btn ">Send Data </button>
           </form>
         </div>
       </div>
-      </div>
+    </div>
 
-      <!-- Popups 2 -->
-      <div class="modal-window hidden">
-        <button class="close-modal">&times;</button>
-        <div class="cont">
+    <!-- Popups 2 -->
+    <div class="modal-window hidden">
+      <button class="close-modal">&times;</button>
+      <div class="cont">
       </div>
       <div class="overlay hidden"></div>
 
@@ -874,59 +817,54 @@ u-margin-bottom-small">Set Your Data :</h3>
           </div>
         </div>
       </div>
-    </main>
+  </main>
 
-    <!-- footer -->
-    <footer class="footer" id="footer">
-      <div class="footer__logo-box u-margin-bottom-big">
-        <img
-          src="Resourses/images/logo-green-2x.png"
-          alt="logo"
-          class="footer__logo"
-        />
-      </div>
-      <div class="row">
-        <div class="col-1-of-2">
-          <div class="footer__navigation">
-            <ul class="footer__list">
-              <li class="footer__item">
-                <a href="#" class="footer__link">Harsh Github</a>
-              </li>
-              <li class="footer__item">
-                <a href="https://github.com/namancode07" class="footer__link"
-                  >Naman Github</a
-                >
-              </li>
-              <li class="footer__item">
-                <a href="#" class="footer__link">Contact Us</a>
-              </li>
-              <li class="footer__item">
-                <a href="#tours" class="footer__link">Certification Courses</a>
-              </li>
-              <li class="footer__item">
-                <a href="#" class="footer__link">Join</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-1-of-2">
-          <p class="footer__copyright">
-            Built by
-            <a href="#" class="footer__link">Harsh Kumar</a> &
-            <a href="#" class="footer__link">Naman Kumar</a> for
-
-            <a href="#" class="footer__link">Scholars Sahayta</a> . Copyright ©
-            by <a href="#" class="footer__link">Harsh Kumar</a> &
-            <a href="#" class="footer__link">Naman Kumar</a>. You are 100% free
-            to use the study materials for learning and academic purposes, but
-            NOT to claim this platform as your own creation. A credit to the
-            original creators, Harsh Kumar & Naman Kumar, is always appreciated!
-            🚀
-          </p>
+  <!-- footer -->
+  <footer class="footer" id="footer">
+    <div class="footer__logo-box u-margin-bottom-big">
+      <img src="Resourses/images/logo-green-2x.png" alt="logo" class="footer__logo" />
+    </div>
+    <div class="row">
+      <div class="col-1-of-2">
+        <div class="footer__navigation">
+          <ul class="footer__list">
+            <li class="footer__item">
+              <a href="#" class="footer__link">Harsh Github</a>
+            </li>
+            <li class="footer__item">
+              <a href="https://github.com/namancode07" class="footer__link">Naman Github</a>
+            </li>
+            <li class="footer__item">
+              <a href="#" class="footer__link">Contact Us</a>
+            </li>
+            <li class="footer__item">
+              <a href="#tours" class="footer__link">Certification Courses</a>
+            </li>
+            <li class="footer__item">
+              <a href="#" class="footer__link">Join</a>
+            </li>
+          </ul>
         </div>
       </div>
-    </footer>
-  </body>
-  <script src="script.js"></script>
-  <script src="usersData.js"></script>
+      <div class="col-1-of-2">
+        <p class="footer__copyright">
+          Built by
+          <a href="#" class="footer__link">Harsh Kumar</a> &
+          <a href="#" class="footer__link">Naman Kumar</a> for
+
+          <a href="#" class="footer__link">Scholars Sahayta</a> . Copyright ©
+          by <a href="#" class="footer__link">Harsh Kumar</a> &
+          <a href="#" class="footer__link">Naman Kumar</a>. You are 100% free
+          to use the study materials for learning and academic purposes, but
+          NOT to claim this platform as your own creation. A credit to the
+          original creators, Harsh Kumar & Naman Kumar, is always appreciated!
+          🚀
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+<script src="script.js"></script>
+<script src="usersData.js"></script>
+
 </html>

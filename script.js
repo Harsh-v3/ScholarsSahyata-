@@ -94,7 +94,7 @@ const insertBody = function () {
             <a href="#" class="item" onclick="downloadFile('VBFrontPage')" >VB Front Page</a>
             <a href="#" class="item" onclick="downloadFile('VBAssignment')" >VB Practicle File</a>
             <a href="#" class="item" onclick="downloadFile('DateSheet')">Datesheet</a>
-            <a href="https://www.mediafire.com/folder/n73wsmzhtkngx/Presentation" class="item" >Presentations</a>
+            <a href="#" class="item onclick="af()" >Presentations</a>
             <a href="#" class="item">Syllabus</a>
           </div>`,
   ];
@@ -168,13 +168,3 @@ function downloadFile(fileName) {
     return;
   }
 }
-
-//NO JS
-document.addEventListener("DOMContentLoaded", function () {
-  const selectElement = document.getElementById("slct");
-
-  selectElement.addEventListener("change", function () {
-    const selectedValue = selectElement.value; // Store the selected value in a variable
-    alert("You selected: " + selectedValue); // Show the alert with the selected value
-  });
-});
