@@ -94,7 +94,7 @@ const insertBody = function () {
             <a href="#" class="item" onclick="downloadFile('VBFrontPage')" >VB Front Page</a>
             <a href="#" class="item" onclick="downloadFile('VBAssignment')" >VB Practicle File</a>
             <a href="#" class="item" onclick="downloadFile('DateSheet')">Datesheet</a>
-            <a href="#" class="item onclick="af()" >Presentations</a>
+            <a href="#" class="item " onclick="pptWindow()" >Presentations</a>
             <a href="#" class="item">Syllabus</a>
           </div>`,
   ];

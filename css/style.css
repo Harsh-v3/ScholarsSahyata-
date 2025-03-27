@@ -974,11 +974,12 @@ body {
       padding: 20rem 0 10rem 0; } }
 
 .section-stories {
-  padding: 15rem 0;
+  padding: 25rem 0 15rem 0;
+  margin-top: -7rem;
   position: relative; }
   @media only screen and (max-width: 56.25em) {
     .section-stories {
-      padding: 10rem 0; } }
+      padding: 15rem 0 10rem 0; } }
 
 .section-book {
   padding: 15rem 0;
